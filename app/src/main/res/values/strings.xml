@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Monitoring Tanaman</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_sign_in">SignInActivity</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_beranda_tambah">BerandaTambahActivity</string>
+    <string name="title_activity_beranda_detail">BerandaDetailActivity</string>
+    <string name="title_activity_kelembaban">KelembabanActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_kelembapan">KelembapanActivity</string>
+    <string name="title_activity_penyiraman">PenyiramanActivity</string>
+    <string name="title_activity_profil_ubah">ProfilUbahActivity</string>
+    <string name="title_activity_profil_password">ProfilPasswordActivity</string>
+    <string name="title_activity_tanaman">TanamanActivity</string>
+    <string name="title_activity_tanaman_ubah">TanamanUbahActivity</string>
+    <string name="title_activity_galeri">GaleriActivity</string>
+    <string name="title_activity_galeri_tambah">GaleriTambahActivity</string>
+    <string name="title_activity_galeri_detail">GaleriDetailActivity</string>
+</resources>

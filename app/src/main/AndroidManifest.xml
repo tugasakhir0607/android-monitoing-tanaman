@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.monitoringtanaman">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/motan3"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="q">
+        <activity
+            android:name=".menuutama.beranda.menu.GaleriDetailActivity"
+            android:label="@string/title_activity_galeri_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".menuutama.beranda.menu.GaleriTambahActivity"
+            android:label="@string/title_activity_galeri_tambah"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".menuutama.beranda.menu.GaleriActivity"
+            android:label="@string/title_activity_galeri"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".menuutama.beranda.menu.TanamanUbahActivity"
+            android:label="@string/title_activity_tanaman_ubah"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".menuutama.beranda.menu.TanamanActivity"
+            android:label="@string/title_activity_tanaman"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".menuutama.profil.ProfilPasswordActivity"
+            android:label="@string/title_activity_profil_password"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".menuutama.profil.ProfilUbahActivity"
+            android:label="@string/title_activity_profil_ubah"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".menuutama.beranda.menu.PenyiramanActivity"
+            android:label="@string/title_activity_penyiraman"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".menuutama.beranda.menu.KelembapanActivity"
+            android:label="@string/title_activity_kelembapan"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".menuutama.beranda.BerandaDetailActivity"
+            android:label="@string/title_activity_beranda_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".menuutama.beranda.BerandaTambahActivity"
+            android:label="@string/title_activity_beranda_tambah"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SignUpActivity"
+            android:label="@string/title_activity_sign_up"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SignInActivity"
+            android:label="@string/title_activity_sign_in"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
