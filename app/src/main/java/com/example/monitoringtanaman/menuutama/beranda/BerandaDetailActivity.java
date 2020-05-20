@@ -9,13 +9,14 @@ import androidx.cardview.widget.CardView;
 import android.view.View;
 
 import com.example.monitoringtanaman.R;
+import com.example.monitoringtanaman.menuutama.beranda.menu.EvaluasiDetailActivity;
 import com.example.monitoringtanaman.menuutama.beranda.menu.GaleriActivity;
 import com.example.monitoringtanaman.menuutama.beranda.menu.KelembapanActivity;
 import com.example.monitoringtanaman.menuutama.beranda.menu.PenyiramanActivity;
 import com.example.monitoringtanaman.menuutama.beranda.menu.TanamanActivity;
 
 public class BerandaDetailActivity extends AppCompatActivity implements View.OnClickListener {
-    private CardView card_tanaman, card_kelembaban, card_penyiraman, card_galeri;
+    private CardView card_tanaman, card_kelembaban, card_penyiraman, card_galeri, card_evaluasi;
     private String id_tb_tanaman, nama_tanaman;
 
     @Override
@@ -42,10 +43,12 @@ public class BerandaDetailActivity extends AppCompatActivity implements View.OnC
         card_kelembaban = findViewById(R.id.card_kelembaban);
         card_penyiraman = findViewById(R.id.card_penyiraman);
         card_galeri = findViewById(R.id.card_galeri);
+        card_evaluasi = findViewById(R.id.card_evaluasi);
         card_tanaman.setOnClickListener(this);
         card_kelembaban.setOnClickListener(this);
         card_penyiraman.setOnClickListener(this);
         card_galeri.setOnClickListener(this);
+        card_evaluasi.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +67,10 @@ public class BerandaDetailActivity extends AppCompatActivity implements View.OnC
             startActivity(i);
         } else if (v == card_galeri){
             Intent i = new Intent(this, GaleriActivity.class);
+            i.putExtra("id_tb_tanaman",id_tb_tanaman);
+            startActivity(i);
+        } else if (v == card_evaluasi){
+            Intent i = new Intent(this, EvaluasiDetailActivity.class);
             i.putExtra("id_tb_tanaman",id_tb_tanaman);
             startActivity(i);
         }

@@ -53,4 +53,7 @@ public interface UserAPIServices {
 
     @POST("api_deleteGaleri")
     Call<ResponseBody> deleteGaleri(@Body RequestBody file);
+
+    @POST("api_getEvaluasi")
+    Call<ResponseBody> getEvaluasi(@Body RequestBody file);
 }

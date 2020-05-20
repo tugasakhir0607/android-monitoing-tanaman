@@ -37,4 +37,6 @@
     <string name="title_activity_galeri">GaleriActivity</string>
     <string name="title_activity_galeri_tambah">GaleriTambahActivity</string>
     <string name="title_activity_galeri_detail">GaleriDetailActivity</string>
+    <string name="title_activity_evaluasi_detail">EvaluasiDetailActivity</string>
+    <string name="title_activity_evaluasi_edit">EvaluasiEditActivity</string>
 </resources>

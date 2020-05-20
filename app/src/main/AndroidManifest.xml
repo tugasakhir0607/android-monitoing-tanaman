@@ -15,16 +15,24 @@
         android:hardwareAccelerated="true"
         android:icon="@mipmap/motan3"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
         tools:targetApi="q">
         <activity
+            android:name=".menuutama.beranda.menu.EvaluasiEditActivity"
+            android:label="@string/title_activity_evaluasi_edit"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".menuutama.beranda.menu.EvaluasiDetailActivity"
+            android:label="@string/title_activity_evaluasi_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".menuutama.beranda.menu.GaleriDetailActivity"
             android:label="@string/title_activity_galeri_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".menuutama.beranda.menu.GaleriTambahActivity"
             android:label="@string/title_activity_galeri_tambah"
