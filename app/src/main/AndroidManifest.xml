@@ -22,9 +22,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="q">
         <activity
+            android:name=".menuutama.beranda.menu.PDFActivity"
+            android:label="@string/title_activity_p_d_f"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".menuutama.beranda.menu.EvaluasiEditActivity"
             android:label="@string/title_activity_evaluasi_edit"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".menuutama.beranda.menu.EvaluasiDetailActivity"
             android:label="@string/title_activity_evaluasi_detail"

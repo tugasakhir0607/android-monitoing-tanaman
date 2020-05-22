@@ -72,6 +72,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Pemupukan Perminggu"
                     android:layout_marginTop="10dp"
+                    android:visibility="gone"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_pemupukan"

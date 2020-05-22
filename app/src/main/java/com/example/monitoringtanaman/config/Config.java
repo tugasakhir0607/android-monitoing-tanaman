@@ -25,8 +25,8 @@ public class Config {
 
     public static final String IMAGE_DIRECTORY_NAME = "Monitoring Tanaman";
 //    public static final String BASE_URL = "http://10.0.2.2/ci_monitoring_tanaman/";
-//    public static final String BASE_URL = "https://motanta.000webhostapp.com/";
-    public static final String BASE_URL = "http://192.168.1.10/ci_monitoring_tanaman/";
+    public static final String BASE_URL = "https://monta.yuminci.com/";
+//    public static final String BASE_URL = "http://192.168.1.8/ci_monitoring_tanaman/";
     public static final String URL = BASE_URL+"Api/";
     public static final String URL_FOTO_TANAMAN = BASE_URL+"assets/img/tanaman/";
     public static final String URL_FOTO_GALERI = BASE_URL+"assets/img/galeri/";

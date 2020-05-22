@@ -136,7 +136,7 @@ public class TanamanUbahActivity extends AppCompatActivity implements View.OnCli
     private void simpan(){
         et_nama.setError(null);
         et_penyiraman.setError(null);
-        et_pemupukan.setError(null);
+//        et_pemupukan.setError(null);
         et_deskripsi.setError(null);
         String nama = et_nama.getText().toString();
         String penyiraman = et_penyiraman.getText().toString();
@@ -153,11 +153,13 @@ public class TanamanUbahActivity extends AppCompatActivity implements View.OnCli
             et_penyiraman.setError("Silahkann diisi..");
             focusView = et_penyiraman;
             cancel = true;
-        } else if (TextUtils.isEmpty(pemupukan)){
-            et_pemupukan.setError("Silahkann diisi..");
-            focusView = et_pemupukan;
-            cancel = true;
-        } else if (TextUtils.isEmpty(deskripsi)){
+        }
+//        else if (TextUtils.isEmpty(pemupukan)){
+//            et_pemupukan.setError("Silahkann diisi..");
+//            focusView = et_pemupukan;
+//            cancel = true;
+//        }
+        else if (TextUtils.isEmpty(deskripsi)){
             et_deskripsi.setError("Silahkann diisi..");
             focusView = et_deskripsi;
             cancel = true;
@@ -176,7 +178,7 @@ public class TanamanUbahActivity extends AppCompatActivity implements View.OnCli
             builder.setType(MultipartBody.FORM);
             builder.addFormDataPart("id_tb_tanaman",id_tb_tanaman);
             builder.addFormDataPart("nama_tanaman",nama);
-            builder.addFormDataPart("pemupukan_tanaman",pemupukan);
+//            builder.addFormDataPart("pemupukan_tanaman",pemupukan);
             builder.addFormDataPart("penyiraman_tanaman",penyiraman);
             builder.addFormDataPart("deskripsi_tanaman",deskripsi);
             if (!TextUtils.isEmpty(urlPath)) {
