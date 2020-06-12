@@ -10,10 +10,14 @@ import com.example.monitoringtanaman.config.UserAPIServices;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -39,9 +43,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class KelembapanActivity extends AppCompatActivity {
+public class KelembapanActivity extends AppCompatActivity implements View.OnClickListener {
     TextView tv_no, tv_kelembapan, tv_keterangan, tv_waktu;
     TableLayout tableLayout;
+    ProgressBar progress;
+    Button btn_more;
+    int total_page = 0, offset = 20, no=0;
     private BarChart chart ;
     private String id_tb_tanaman;
     ArrayList NoOfEmp = new ArrayList();
@@ -66,10 +73,16 @@ public class KelembapanActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         id_tb_tanaman = b.getString("id_tb_tanaman");
 
+        progress = (ProgressBar) findViewById(R.id.progress);
         tableLayout = (TableLayout) findViewById(R.id.tableLayout);
         chart  = findViewById(R.id.chart);
+        btn_more = (Button) findViewById(R.id.btn_more);
+
+        btn_more.setOnClickListener(this);
         getGrafik();
     }
+
+
 
     private void getGrafik() {
         final ProgressDialog pDialog = new ProgressDialog(this);
@@ -101,6 +114,7 @@ public class KelembapanActivity extends AppCompatActivity {
                         NoOfEmp.add(new BarEntry(Integer.valueOf(jml), i));
                         year.add(wkt);
                     }
+
                     BarDataSet bardataset = new BarDataSet(NoOfEmp, "Hari");
                     chart.animateY(3000);
                     BarData data = new BarData(year, bardataset);
@@ -139,6 +153,7 @@ public class KelembapanActivity extends AppCompatActivity {
         MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.setType(MultipartBody.FORM);
         builder.addFormDataPart("id_tb_tanaman",id_tb_tanaman);
+        builder.addFormDataPart("offset", String.valueOf(offset));
         MultipartBody requestBody = builder.build();
 
         UserAPIServices api = Config.getRetrofit(Config.URL).create(UserAPIServices.class);
@@ -157,7 +172,15 @@ public class KelembapanActivity extends AppCompatActivity {
                         String keterangan   = c.getString("keterangan");
                         String waktu        = c.getString("waktu");
 
-                        setTabelBody(i, kelembapan, keterangan, waktu);
+                        setTabelBody(no++, kelembapan, keterangan, waktu);
+                    }
+                    offset += 20;
+                    total_page = jsonObj.getInt("total");
+                    Log.d("catatan", String.valueOf(offset));
+                    if (offset<total_page){
+                        btn_more.setVisibility(View.VISIBLE);
+                    } else {
+                        btn_more.setVisibility(View.GONE);
                     }
 
                 } catch (IOException e) {
@@ -216,4 +239,12 @@ public class KelembapanActivity extends AppCompatActivity {
         tableLayout.addView(row);
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v == btn_more){
+            if (offset<total_page){
+                data();
+            }
+        }
+    }
 }

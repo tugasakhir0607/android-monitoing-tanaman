@@ -14,9 +14,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -34,9 +37,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PenyiramanActivity extends AppCompatActivity {
+public class PenyiramanActivity extends AppCompatActivity implements View.OnClickListener {
     TextView tv_no, tv_pompa, tv_waktu;
     TableLayout tableLayout;
+    ProgressBar progress;
+    Button btn_more;
+    int total_page = 0, offset = 20, no=0;
     private String id_tb_tanaman;
 
     @Override
@@ -59,6 +65,11 @@ public class PenyiramanActivity extends AppCompatActivity {
         id_tb_tanaman = b.getString("id_tb_tanaman");
 
         tableLayout = (TableLayout) findViewById(R.id.tableLayout);
+        progress = (ProgressBar) findViewById(R.id.progress);
+        tableLayout = (TableLayout) findViewById(R.id.tableLayout);
+        btn_more = (Button) findViewById(R.id.btn_more);
+
+        btn_more.setOnClickListener(this);
     }
 
     @Override
@@ -77,6 +88,7 @@ public class PenyiramanActivity extends AppCompatActivity {
         MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.setType(MultipartBody.FORM);
         builder.addFormDataPart("id_tb_tanaman",id_tb_tanaman);
+        builder.addFormDataPart("offset", String.valueOf(offset));
         MultipartBody requestBody = builder.build();
 
         UserAPIServices api = Config.getRetrofit(Config.URL).create(UserAPIServices.class);
@@ -94,9 +106,16 @@ public class PenyiramanActivity extends AppCompatActivity {
                         String pompa   = c.getString("pompa");
                         String waktu   = c.getString("waktu");
 
-                        setTabelBody(i, pompa, waktu);
+                        setTabelBody(no++, pompa, waktu);
                     }
-
+                    offset += 20;
+                    total_page = jsonObj.getInt("total");
+                    Log.d("catatan", String.valueOf(offset));
+                    if (offset<total_page){
+                        btn_more.setVisibility(View.VISIBLE);
+                    } else {
+                        btn_more.setVisibility(View.GONE);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Tidak bisa mengirim data!", Toast.LENGTH_LONG).show();
@@ -144,5 +163,14 @@ public class PenyiramanActivity extends AppCompatActivity {
         row.addView(tv_waktu);
 
         tableLayout.addView(row);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == btn_more){
+            if (offset<total_page){
+                data();
+            }
+        }
     }
 }
